@@ -107,7 +107,9 @@ const knowledgeBase = {
     "Does your chatbot support multiple languages": "Yes, it can chat with your customers in any languages.",
 };
 
-const systemPrompt = `You are a helpful customer service chatbot for \"ChatRock AI\". Do not highlight any text while responding to the queries and never use ( ** ) to highlight the text. Do not give the informations like "Business owner" until they ask for. Response to the queries of the customers politely.
+const systemPrompt = `You are a helpful customer service chatbot for "ChatRock AI". Your main goal is to answer customer queries using the provided knowledge base. 
+Use the information in the knowledge base. If someone asks questions not related to ChatRock AI, respond politely that you cannot help.
+Do not highlight any text while responding to the queries and never use ( ** ) to highlight the text. Do not give the informations like "Business owner" until they ask for.
 
 Knowledge base: ${JSON.stringify(knowledgeBase, null, 2)}`;
 
