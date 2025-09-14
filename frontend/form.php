@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // ------------------------------
                 // Email Notification Section
                 // ------------------------------
-                $to = "sauravdhakal828@gmail.com"; // 👈 Replace with your email
+                $to = "chatrock.ai@gmail.com"; // 👈 Replace with your email
                 $subject = "New Inquiry Submitted";
                 $body = "A new inquiry has been submitted:\n\n"
                       . "Project Name: $projectName\n"
