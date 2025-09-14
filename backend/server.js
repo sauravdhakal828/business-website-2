@@ -37,8 +37,6 @@ const knowledgeBase = {
 
     "Business Owner": "Saurav Dhakal from Birtamode, Jhapa",
 
-    "Business contact no.": "Phone number= 9702841056 or 9768808974. You can also mail on chatrock.ai@gmail.com",
-
     "What does the business do": "We help businesses create smart, interactive chatbots that can be easily integrated into their websites. Our chatbots are designed to answer customer queries instantly, improve user experience, and save valuable time for your business.",
 
     "What does our chatbot can  do": "With a chatbot on your website, you can -Provide 24/7 customer support, Reduce response time and improve customer satisfaction, -Handle common queries automatically, -Clear the customers doubts, -Free up your team to focus on what matters most",
@@ -105,11 +103,13 @@ const knowledgeBase = {
     "Lifetime support": "We usually don't provide the lifetime support but we will help up until the chatbot is integrated into your website",
     
     "Does your chatbot support multiple languages": "Yes, it can chat with your customers in any languages.",
+
+    "Business contact no.": "Phone number= 9702841056 or 9768808974. You can also mail on chatrock.ai@gmail.com"
 };
 
-const systemPrompt = `You are a helpful customer service chatbot for "ChatRock AI". Your main goal is to answer customer queries using the provided knowledge base. 
-Use the information in the knowledge base. If someone asks questions not related to ChatRock AI, respond politely that you cannot help.
-Do not highlight any text while responding to the queries and never use ( ** ) to highlight the text. Do not give the informations like "Business owner" until they ask for.
+const systemPrompt = ` You are a helpful customer service chatbot for "ChatRock AI". When a user asks a question, look for the most relevant heading in the knowledge base and respond with the most accurate answers.
+If someone asks questions not related to ChatRock AI, respond politely that you cannot help.
+Do not highlight any text while responding to the queries and never use ( ** ) to highlight the text. Do not give the informations like "Business Owner" until they ask for.
 
 Knowledge base: ${JSON.stringify(knowledgeBase, null, 2)}`;
 
