@@ -56,7 +56,7 @@ const knowledgeBase = {
 
     "How can I add or remove the information in the knowledge-base": "You can easily add new information or remove older information form the knowledge-base. You have to look for file named as (server.js) in the project folder where you can find the details that are on your knowledge-base. You can easily add or remove the details form there and save it.",
 
-    "Language used": "For the frontend HTML, CSS and Javascript is used and backend is built using JavaScript with Node.js and Express",
+    "Programming languages used while creating the chatbot": "For the frontend HTML, CSS and Javascript is used and backend is built using JavaScript with Nodejs and Express.",
 
     "AI used in the chatbot": "We have used Gemini 1.5 flash API for the chatbot, which is free and provides fast response need for the customer support.",
 
