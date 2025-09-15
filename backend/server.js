@@ -56,6 +56,8 @@ const knowledgeBase = {
 
     "How can I add or remove the information in the knowledge-base": "You can easily add new information or remove older information form the knowledge-base. You have to look for file named as (server.js) in the project folder where you can find the details that are on your knowledge-base. You can easily add or remove the details form there and save it.",
 
+    "Language used": "For the frontend HTML, CSS and Javascript is used and backend is built using JavaScript with Node.js and Express",
+
     "AI used in the chatbot": "We have used Gemini 1.5 flash API for the chatbot, which is free and provides fast response need for the customer support.",
 
     "What is API key": "API key is a unique code that connects your chatbot to the service or platform it needs to run. Without the API key, the chatbot won’t know how to access the service securely.",
@@ -107,7 +109,9 @@ const knowledgeBase = {
     "Business contact no.": "Phone number= 9702841056 or 9768808974. You can also mail on chatrock.ai@gmail.com"
 };
 
-const systemPrompt = ` You are a helpful customer service chatbot for "ChatRock AI". When a user asks a question, look for the most relevant heading in the knowledge base and respond with the most accurate answers.
+const systemPrompt = ` You are a helpful customer service chatbot for "ChatRock AI".
+When a user asks a question, search the knowledge base and identify the 2–3 most relevant headings. Use the information from these headings to generate a single, clear, and accurate answer. If multiple headings are relevant, combine their details into a well-structured response rather than listing them separately. Always prioritize accuracy and helpfulness.
+You may write the response in multiple paragraphs if necessary to improve clarity and readability.s
 If someone asks questions not related to ChatRock AI, respond politely that you cannot help.
 Do not highlight any text while responding to the queries and never use ( ** ) to highlight the text. Do not give the informations like "Business Owner" until they ask for.
 
