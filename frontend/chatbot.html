@@ -46,16 +46,10 @@
             </a>
         </header>
         <main id="message-container" class="flex-1 p-6 space-y-4 overflow-y-auto bg-slate-50 message-container pb-28"></main>
-        <div id="typing-indicator" class="px-6 py-2 flex items-center gap-2 text-slate-500 hidden">
-            <div class="typing-indicator"></div>
-            <div class="typing-indicator"></div>
-            <div class="typing-indicator"></div>
-            <span>Typing...</span>
-        </div>
         <footer class="px-3 py-6 md:py-4 flex-shrink-0 flex justify-center">
             <div class="relative w-full max-w-xl bg-white shadow-xl rounded-2xl border border-slate-200 overflow-hidden">
                 <textarea id="user-input" placeholder="Type a message..." class="w-full px-4 py-3 rounded-2xl focus:outline-none pr-12 resize-none max-h-36" rows="1"></textarea>
-                <button id="send-btn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-blue-600 transition-colors duration-200" aria-label="Send message">
+               <button id="send-btn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-blue-600 transition-colors duration-200" aria-label="Send message">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                     </svg>
@@ -68,7 +62,6 @@
             const messageContainer = document.getElementById('message-container');
             const userInput = document.getElementById('user-input');
             const sendBtn = document.getElementById('send-btn');
-            const typingIndicator = document.getElementById('typing-indicator');
 
             // ✅ Backend URL points to the root of Node.js app
             const backendURL = 'https://chatrockai.digital/chatrock-backend';
@@ -88,18 +81,41 @@
                 messageContainer.scrollTop = messageContainer.scrollHeight;
             }
 
+            function createTypingIndicator() {
+                const typingWrapper = document.createElement('div');
+                typingWrapper.id = 'typing-message'; // Unique ID to find and remove it later
+                typingWrapper.className = 'flex gap-2 justify-start';
+
+                const typingBubble = document.createElement('div');
+                typingBubble.className = 'p-3 rounded-xl max-w-xs shadow-sm bg-slate-200 text-slate-800 rounded-bl-sm flex items-center gap-2';
+                typingBubble.innerHTML = `
+                    <div class="typing-indicator"></div>
+                    <div class="typing-indicator"></div>
+                    <div class="typing-indicator"></div>
+                    <span>Typing...</span>
+                `;
+
+                typingWrapper.appendChild(typingBubble);
+                return typingWrapper;
+            }
+
             async function sendMessage() {
                 const text = userInput.value.trim();
                 if (text === '') return;
 
+                // Add the user's message
                 addMessage(text, true);
                 userInput.value = '';
                 userInput.style.height = 'auto'; // Reset height after sending
 
+                // Create and show the typing indicator message
+                const typingIndicatorMessage = createTypingIndicator();
+                messageContainer.appendChild(typingIndicatorMessage);
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+
+                // Disable send button
                 sendBtn.disabled = true;
                 sendBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                typingIndicator.classList.remove('hidden');
-                messageContainer.scrollTop = messageContainer.scrollHeight;
 
                 try {
                     const response = await fetch(`${backendURL}/chat`, {
@@ -117,9 +133,15 @@
                     console.error('Backend connection error:', error);
                     addMessage("Connection failed. Please try again later.", false);
                 } finally {
+                    // Remove the typing indicator message
+                    const typingMessage = document.getElementById('typing-message');
+                    if (typingMessage) {
+                        typingMessage.remove();
+                    }
+
+                    // Re-enable send button
                     sendBtn.disabled = false;
                     sendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    typingIndicator.classList.add('hidden');
                 }
             }
 
