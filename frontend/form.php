@@ -201,9 +201,9 @@ $conn->close();
             <a href="#" class="logo text-4xl font-bold font-display bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent relative transition-all duration-300">ChatRock AI</a>
             <ul class="hidden md:flex items-center space-x-8 lg:space-x-12">
                 <li><a href="index.html" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Home</a></li>
-                <li><a href="#services" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Services</a></li>
-                <li><a href="#features" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Features</a></li>
-                <li><a href="#contact" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Contact</a></li>
+                <li><a href="index.html#services" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Services</a></li>
+                <li><a href="index.html#features" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Features</a></li>
+                <li><a href="index.html#contact" class="text-slate-800 font-medium text-lg relative transition-all duration-300 hover:text-indigo-600 hover:before:opacity-10 hover:before:bg-indigo-50/10 hover:before:rounded-2xl hover:before:absolute hover:before:inset-0">Contact</a></li>
             </ul>
         </nav>
     </header>
